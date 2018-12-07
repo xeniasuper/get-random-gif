@@ -58,8 +58,9 @@ form {
 }
 
 #gif {
-  margin: 40px;
+  margin: 60px;
   min-height: 200px;
+  min-width: 50px;
   max-height: 300px;
 }
 
@@ -111,6 +112,7 @@ body {
    }
     #gif{
       min-height: 300px;
+      min-width: 50px;
       max-height: 500px;
     }
 }
