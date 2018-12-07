@@ -14,7 +14,7 @@ input:focus {
    outline: none;
 }
 
-input[type="button"]{
+#getGif{
    height: 50px;
    width: 150px;
    border: 0.12em solid;
@@ -22,16 +22,13 @@ input[type="button"]{
    border-radius:0.3em;
    color: #fff;
    transition: all 0.2s;
+   display: none;
 }
 
-input[type="button"]:hover{
+#getGif:hover{
   border: #fff;
   color:#fff;
   background: rgba(151, 174, 216, 0.3);
-}
-
-#getGifBtn {
-  display: none;
 }
 
 #label {
@@ -105,23 +102,10 @@ body {
   animation:move-twink-back 200s linear infinite;
 }
 
-
-/* ----------- Non-Retina Screens ----------- */
+/*non-mobile*/
 @media screen
-  and (min-device-width: 1200px)
-  and (max-device-width: 1600px)
-  and (-webkit-min-device-pixel-ratio: 1) {
-    #getGif {
-      display: inline-block;
-    }
-}
-
-/* ----------- Retina Screens ----------- */
-@media screen
-  and (min-device-width: 1200px)
-  and (max-device-width: 1600px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (min-resolution: 192dpi) {
+ and (min-width: 361px)
+ and (min-height: 641px) {
     #getGif {
       display: inline-block;
     }
