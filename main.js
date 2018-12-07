@@ -3,12 +3,6 @@ const apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
 const limit = "&limit=1000";
 let query = "";
 
-function randomInteger(min, max) {
-    var rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
-  }
-
 let getGifBtn = document.getElementById("getGif");
 
 getGifBtn.addEventListener("click", () => {
