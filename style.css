@@ -106,6 +106,7 @@ body {
  and (min-height: 641px) {
    #gifContainer {
      height: 500px;
+     max-width: 500px;
    }
     #gif{
       max-height: 400px;
