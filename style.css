@@ -1,7 +1,3 @@
-input[type=text]:focus {
-  border: 3px solid #37a2fa;
-}
-
 input {
   margin-bottom: 3em;
 }
