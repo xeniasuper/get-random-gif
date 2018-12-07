@@ -27,8 +27,11 @@ input[type="button"]{
 input[type="button"]:hover{
   border: #fff;
   color:#fff;
-  background: rgba(151, 174, 216, 0.3);;
- 
+  background: rgba(151, 174, 216, 0.3);
+}
+
+#getGifBtn {
+  display: none;
 }
 
 #label {
@@ -100,4 +103,26 @@ body {
   -o-animation:move-twink-back 200s linear infinite;
   -webkit-animation:move-twink-back 200s linear infinite;
   animation:move-twink-back 200s linear infinite;
+}
+
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen
+  and (min-device-width: 1200px)
+  and (max-device-width: 1600px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #getGif {
+      display: inline-block;
+    }
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen
+  and (min-device-width: 1200px)
+  and (max-device-width: 1600px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) {
+    #getGif {
+      display: inline-block;
+    }
 }
