@@ -1,6 +1,7 @@
-let api = "https://api.giphy.com/v1/gifs/search?";
+const api = "https://api.giphy.com/v1/gifs/search?";
+const apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
+const limit = "&limit=1000";
 let query = "";
-let apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
 
 function makeUrl(api, query, apiKey){
   return api + query + apiKey;
@@ -21,7 +22,7 @@ getGifBtn.addEventListener("click", () => {
   };
   let input = getInput("search");
   query = setQuery(input);
-  let url = api + query + apiKey;
+  let url = api + query + apiKey + limit;
   //console.log(url);
 
   loadJSON(url, (giphy) => {
