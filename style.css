@@ -12,8 +12,9 @@ input {
 }
 
 #gifContainer {
-  width: 200px;
-  height: auto;
+  width: auto;
+  min-height: 300px;
+  max-height: 300px;
 }
 
 form {
