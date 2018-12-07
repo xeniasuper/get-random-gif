@@ -1,12 +1,15 @@
+// TODO: добавить возможность поиска по Enter
+// TODO: стили
+// TODO: find better random int func
+
 const api = "https://api.giphy.com/v1/gifs/search?";
 const apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
 const limit = "&limit=1000";
 let query = "";
 
-function randomInteger(min, max) {
-    var rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
+function randomInteger() {
+  let rand = Math.random()*1000;
+  return Math.floor(rand);
   }
 
 let getGifBtn = document.getElementById("getGif");
@@ -24,7 +27,7 @@ getGifBtn.addEventListener("click", () => {
   loadJSON(url, (giphy) => {
     let gifContainer = document.getElementById("gifContainer");
     let gif = document.createElement("img");
-    let src = randomInteger(0, 24);
+    let src = randomInteger();
     gif.setAttribute("id", "gif");
     gif.setAttribute("src", giphy.data[src].images.original.url);
     gif.setAttribute("width", "100%");
