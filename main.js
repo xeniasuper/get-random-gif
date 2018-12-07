@@ -1,4 +1,4 @@
-let api = "http://api.giphy.com/v1/gifs/search?";
+let api = "https://api.giphy.com/v1/gifs/search?";
 let query = "";
 let apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
 
