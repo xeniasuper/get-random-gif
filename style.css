@@ -10,6 +10,10 @@ input {
   font-weight: 300;
 }
 
+#gifContainer {
+  display: none;
+}
+
 input:focus {
    outline: none;
 }

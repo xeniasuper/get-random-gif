@@ -1,6 +1,3 @@
-// TODO: promises
-// TODO: loading img
-
 const api = "https://api.giphy.com/v1/gifs/search?";
 const apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
 const limit = "&limit=1000";
