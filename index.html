@@ -10,15 +10,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="contentContainer">
-  <form>
-    <div>
+    <div id="contentContainer">
+    <form id="form">
       <label for="search" id="label">What gif do you want?</label>
-    </div>
       <input type="text" id="search" placeholder="Search for a gif...">
-  </form>
-  <input id="getGif" type="button" value="Get a gif!"></input>
-  <div id="gifContainer"></div>
+      <input type="button" id="getGif" value="Get a gif!" clicked="false"></input>
+    </form>
+    <div id="gifContainer"></div>
   </div>
   <script src="main.js"></script>
 </body>
