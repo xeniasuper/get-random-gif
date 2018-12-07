@@ -5,7 +5,7 @@ input {
   font-size: 20px;
   border: 0.3em solid #fff;
   border-radius:0.2em;
-  font-family:'Roboto',sans-serif;
+  font-family:'Roboto', sans-serif;
   font-weight: 300;
 }
 
@@ -21,7 +21,6 @@ input:focus {
    border-radius:0.3em;
    color: #fff;
    transition: all 0.2s;
-   /* display: none; */
 }
 
 #getGif:hover{
@@ -37,7 +36,7 @@ input:focus {
 }
 
 #gifContainer {
-  height: 100px;
+  height: 300px;
   display: flex;
   justify-content: center;
 }
@@ -59,8 +58,8 @@ form {
 }
 
 #gif {
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 html, body {
@@ -105,10 +104,10 @@ body {
 @media screen
  and (min-width: 361px)
  and (min-height: 641px) {
-    /* #getGif {
-      display: inline-block;
-    } */
-    #gifContainer{
-      height: 500px;
+   #gifContainer {
+     height: 500px;
+   }
+    #gif{
+      max-height: 400px;
     }
 }
