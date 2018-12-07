@@ -14,7 +14,7 @@ input:focus {
    outline: none;
 }
 
- input[type="button"]{
+input[type="button"]{
    height: 50px;
    width: 150px;
    border: 0.12em solid;
