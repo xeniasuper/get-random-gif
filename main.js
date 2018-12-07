@@ -11,12 +11,11 @@ getGifBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
   let gif = document.getElementById("gif");
-
-  if(typeof(gif) != 'undefined' && gif != null){
+  if (typeof(gif) != 'undefined' && gif != null){
     gif.remove();
   };
-  query = setQuery(getInput("search"));
 
+  query = setQuery(getInput("search"));
   let url = api + query + apiKey + limit;
 
   loadJSON(url, (giphy) => {
