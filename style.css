@@ -58,7 +58,7 @@ form {
 }
 
 #gif {
-  max-width: 200px;
+  max-width: 400px;
   max-height: 200px;
 }
 
@@ -109,5 +109,6 @@ body {
    }
     #gif{
       max-height: 400px;
+      max-width: 800px;
     }
 }
