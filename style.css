@@ -1,10 +1,12 @@
+/* TODO: стили */
+
 input {
   margin-bottom: 1em;
 }
 
-/* input:focus {
+input:focus {
   outline: none;
-} */
+}
 
 #label {
   display: block;
@@ -19,7 +21,7 @@ input {
 }
 
 form {
-  height: 15%;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
