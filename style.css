@@ -1,7 +1,7 @@
 
 input {
   margin-bottom: 1em;
-  height: 30px;
+  min-height: 30px;
   font-size: 20px;
   border: 0.3em solid #fff;
   border-radius:0.2em;
@@ -14,7 +14,7 @@ input:focus {
 }
 
 #getGif{
-   height: 50px;
+   min-height: 50px;
    width: 150px;
    border: 0.12em solid;
    background-color: transparent;
@@ -58,8 +58,9 @@ form {
 }
 
 #gif {
-  max-width: 300px;
-  max-height: 200px;
+  margin: 40px;
+  min-height: 200px;
+  max-height: 300px;
 }
 
 html, body {
@@ -109,7 +110,7 @@ body {
      max-width: 500px;
    }
     #gif{
-      max-width: 400px;
-      max-height: 400px;
+      min-height: 300px;
+      max-height: 500px;
     }
 }
