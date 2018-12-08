@@ -1,4 +1,3 @@
-
 input {
   margin-bottom: 1em;
   min-height: 30px;
@@ -13,7 +12,11 @@ input:focus {
    outline: none;
 }
 
-#getGif{
+input[type="text"] {
+  margin-top: 1em
+}
+
+#getGif {
    min-height: 50px;
    width: 150px;
    border: 0.12em solid;
@@ -46,33 +49,31 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3em;
 }
 
 progress {
-  /* Отключаем стиль (как правило, не требуется, но на всякий случай)  */
 appearance: none;
 -moz-appearance: none;
 -webkit-appearance: none;
-/* Убираем границы по умолчанию в Firefox и Opera */
 border: none;
-/* Чтобы фоновое изображение в Safari работало, как надо */
 background-size: auto;
-height: 0.08em;
-width: 30%;
-/* color: #fff;
-background: transparent; */
+height: 0.1em;
+width: 200px;
+margin-top: 2em;
+
 }
-/* Firefox */
+
 progress::-moz-progress-bar {
 background: #fff;
 color: #fff;
-height: 0.08em;
+height: 0.1em;
 }
-/* Chrome */
+
 progress::-webkit-progress-value {
 background: #fff;
 color: #fff;
-height: 0.08em;
+height: 0.1em;
 }
 
 #contentContainer {
@@ -92,9 +93,10 @@ height: 0.08em;
   max-height: 300px;
 }
 
-html, body {
+/* body {
   height: 100%;
-}
+  width: 100%;
+} */
 
 body {
   background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
@@ -140,5 +142,9 @@ body {
       min-height: 300px;
       min-width: 50px;
       max-height: 500px;
+    }
+
+    progress {
+      width: 30%;
     }
 }

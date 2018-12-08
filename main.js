@@ -53,36 +53,33 @@ function loadJSON(filePath, success, error)
 {
 	let xhr = new XMLHttpRequest();
 
-//   xhr.onprogress = function(event) {
-//   console.log( 'Загружено на сервер ' + event.loaded + ' байт из ' + event.total );
-// }
-let progressBar = document.getElementById("progress");
-// progressBar.style.visibility = "visible";
-xhr.onloadstart = function(e) {
-  progressBar.value = 0;
-};
+  let progressBar = document.getElementById("progress");
 
-xhr.onprogress = function(e) {
-  if (e.lengthComputable) {
-      progressBar.max = e.total;
-      progressBar.value = e.loaded;
+  xhr.onloadstart = function(e) {
+    progressBar.value = 0;
+  };
+
+  xhr.onprogress = function(e) {
+    if (e.lengthComputable) {
+        progressBar.max = e.total;
+        progressBar.value = e.loaded;
+    }
   }
-}
-xhr.onloadend = function(e) {
-  progressBar.value = e.loaded;
-}
-	xhr.onreadystatechange = () =>
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE) {
-			if (xhr.status === 200) {
-				if (success)
-					success(JSON.parse(xhr.responseText));
-		} else {
-			if (error)
-				error(xhr);
-			}
-		}
-	};
-	xhr.open("GET", filePath, true);
-	xhr.send();
+  xhr.onloadend = function(e) {
+    progressBar.value = e.loaded;
+  }
+  	xhr.onreadystatechange = () =>
+  	{
+  		if (xhr.readyState === XMLHttpRequest.DONE) {
+  			if (xhr.status === 200) {
+  				if (success)
+  					success(JSON.parse(xhr.responseText));
+  		} else {
+  			if (error)
+  				error(xhr);
+  			}
+  		}
+  	};
+  	xhr.open("GET", filePath, true);
+  	xhr.send();
 }
