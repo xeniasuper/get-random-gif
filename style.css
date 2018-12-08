@@ -26,10 +26,16 @@ input[type="text"] {
    transition: all 0.2s;
 }
 
-#getGif:hover{
+#getGif:hover {
   border: #fff solid 0.1em;
   color:#fff;
   background: rgba(151, 174, 216, 0.3);
+}
+
+#getGif:active {
+  border: #fff solid 0.1em;
+  color:#fff;
+  background: rgba(86, 132, 216, 0.3);
 }
 
 #label {
