@@ -27,14 +27,14 @@ input[type="text"] {
 }
 
 #getGif:hover {
-  border: #fff solid 0.1em;
-  color:#fff;
   background: rgba(151, 174, 216, 0.3);
+  cursor: pointer;
 }
 
 #getGif:active {
   border: #fff solid 0.1em;
   color:#fff;
+  cursor: pointer;
   background: rgba(86, 132, 216, 0.3);
 }
 
@@ -97,6 +97,28 @@ height: 0.1em;
   min-height: 200px;
   min-width: 50px;
   max-height: 300px;
+}
+
+footer {
+  margin-top: 50px;
+  color: #fff;
+  text-align: center;
+  font-family:'Roboto', sans-serif;
+}
+
+a:link, a:visited {
+  color: rgba(151, 174, 216);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: rgba(151, 174, 216);
+}
+
+a:active {
+  text-decoration: underline;
+  color: rgba(151, 174, 216);
 }
 
 body {

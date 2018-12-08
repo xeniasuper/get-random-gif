@@ -9,26 +9,28 @@ let searchInput = document.getElementById("search");
 let cnt_clicks = 0;
 
 getGifBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  cnt_clicks++;
-  if (cnt_clicks === 1){
-    let gif = document.getElementById("gif");
-    if (typeof(gif) != 'undefined' && gif != null){
-      gif.remove();
-    };
+  if (getInput("search") != ""){
+    event.preventDefault();
+    cnt_clicks++;
+    if (cnt_clicks === 1){
+      let gif = document.getElementById("gif");
+      if (typeof(gif) != 'undefined' && gif != null){
+        gif.remove();
+      };
 
-    query = setQuery(getInput("search"));
-    let url = api + query + apiKey + limit;
+      query = setQuery(getInput("search"));
+      let url = api + query + apiKey + limit;
 
-    loadJSON(url, (giphy) => {
-      let gifContainer = document.getElementById("gifContainer");
-      let gif = document.createElement("img");
-      gif.setAttribute("id", "gif");
-      let src = randomInteger();
-      gif.setAttribute("src", giphy.data[src].images.original.url);
-      gifContainer.appendChild(gif);
-      cnt_clicks = 0;
-    });
+      loadJSON(url, (giphy) => {
+        let gifContainer = document.getElementById("gifContainer");
+        let gif = document.createElement("img");
+        gif.setAttribute("id", "gif");
+        let src = randomInteger();
+        gif.setAttribute("src", giphy.data[src].images.original.url);
+        gifContainer.appendChild(gif);
+        cnt_clicks = 0;
+      });
+    }
   }
 });
 
