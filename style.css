@@ -5,7 +5,6 @@ input {
   border: 0.3em solid #fff;
   border-radius:0.2em;
   font-family:'Roboto', sans-serif;
-  font-weight: 300;
 }
 
 input:focus {
@@ -15,7 +14,6 @@ input:focus {
 input[type="text"] {
   margin-top: 1em;
   padding: 5px;
-  border: 0.1em solid #fff;
 }
 
 #getGif {
@@ -94,11 +92,6 @@ height: 0.1em;
   min-width: 50px;
   max-height: 300px;
 }
-
-/* body {
-  height: 100%;
-  width: 100%;
-} */
 
 body {
   background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
