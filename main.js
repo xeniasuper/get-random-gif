@@ -56,7 +56,7 @@ function loadJSON(filePath, success, error)
   let progressBar = document.getElementById("progress");
 
   xhr.onloadstart = function(e) {
-    progressBar.value = 0;
+    progressBar.value = 0.5;
   };
 
   xhr.onprogress = function(e) {
