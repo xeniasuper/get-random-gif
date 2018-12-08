@@ -13,7 +13,9 @@ input:focus {
 }
 
 input[type="text"] {
-  margin-top: 1em
+  margin-top: 1em;
+  padding: 5px;
+  border: 0.1em solid #fff;
 }
 
 #getGif {
@@ -27,7 +29,7 @@ input[type="text"] {
 }
 
 #getGif:hover{
-  border: #fff;
+  border: #fff solid 0.1em;
   color:#fff;
   background: rgba(151, 174, 216, 0.3);
 }
