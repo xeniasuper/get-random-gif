@@ -9,7 +9,6 @@ let searchInput = document.getElementById("search");
 
 getGifBtn.addEventListener("click", (event) => {
   event.preventDefault();
-
   let gif = document.getElementById("gif");
   if (typeof(gif) != 'undefined' && gif != null){
     gif.remove();
@@ -53,6 +52,25 @@ function getInput(id) {
 function loadJSON(filePath, success, error)
 {
 	let xhr = new XMLHttpRequest();
+
+//   xhr.onprogress = function(event) {
+//   console.log( 'Загружено на сервер ' + event.loaded + ' байт из ' + event.total );
+// }
+let progressBar = document.getElementById("progress");
+// progressBar.style.visibility = "visible";
+xhr.onloadstart = function(e) {
+  progressBar.value = 0;
+};
+
+xhr.onprogress = function(e) {
+  if (e.lengthComputable) {
+      progressBar.max = e.total;
+      progressBar.value = e.loaded;
+  }
+}
+xhr.onloadend = function(e) {
+  progressBar.value = e.loaded;
+}
 	xhr.onreadystatechange = () =>
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE) {
