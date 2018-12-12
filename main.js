@@ -31,10 +31,11 @@ getGifBtn.addEventListener("click", (event) => {
         gif.setAttribute("src", giphy.data[src].images.original.url);
         gifContainer.appendChild(gif);
         cnt_clicks = 0;
-      });
+      }).catch(error => console.log(error.name + ': ' + error.message))
+    }
     }
   }
-});
+);
 
 
 document.addEventListener("keypress", function(event) {
