@@ -85,6 +85,10 @@ function loadJSON(filePath) {
   			            }
   		     }
   	};
+
+    xhr.onerror = () => {
+      reject(Error("Network Error"));
+    };
   	xhr.open("GET", filePath, true);
   	xhr.send();
   })
