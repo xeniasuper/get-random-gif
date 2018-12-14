@@ -123,12 +123,11 @@ a:active {
 
 .twinkling{
   background: transparent url(img/twinkling.png) repeat top center;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
+  -moz-animation: move-twink-back 200s linear infinite;
+  -ms-animation: move-twink-back 200s linear infinite;
+  -o-animation: move-twink-back 200s linear infinite;
   -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
+  animation: move-twink-back 200s linear infinite;
 }
 
 @keyframes move-twink-back {
