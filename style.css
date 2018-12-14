@@ -157,17 +157,22 @@ body {
 
 /*non-mobile*/
 @media screen
- and (min-width: 361px)
+ and (min-width: 420px)
  and (min-height: 641px) {
-   /* #gifContainer {
+   #gifContainer {
+     display: flex;
+     justify-content: center;
      height: 500px;
      max-width: 500px;
+     width: auto;
    }
+
     #gif{
-      min-height: 300px;
-      min-width: 50px;
       max-height: 500px;
-    } */
+      max-width: 500px;
+      width: auto;
+      height: auto;
+    }
 
     progress {
       width: 30%;
