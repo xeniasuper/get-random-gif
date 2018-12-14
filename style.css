@@ -1,3 +1,8 @@
+body {
+  background: #000 url(img/sky.png) repeat top center;
+  margin: 0;
+}
+
 input {
   margin-bottom: 1em;
   min-height: 30px;
@@ -36,12 +41,6 @@ input[type="text"] {
   color:#fff;
   cursor: pointer;
   background: rgba(86, 132, 216, 0.3);
-}
-
-#label {
-  display: block;
-  text-align: center;
-  margin: 1em;
 }
 
 #gifContainer {
@@ -102,7 +101,6 @@ height: 0.1em;
 }
 
 footer {
-  margin-top: 50px;
   color: #fff;
   text-align: center;
   font-family:'Roboto', sans-serif;
@@ -121,11 +119,6 @@ a:hover {
 a:active {
   text-decoration: underline;
   color: rgba(151, 174, 216);
-}
-
-body {
-  background: #000 url(img/sky.png) repeat top center;
-  margin: 0;
 }
 
 @keyframes move-twink-back {
@@ -162,14 +155,14 @@ body {
    #gifContainer {
      display: flex;
      justify-content: center;
-     height: 500px;
-     max-width: 500px;
+     height: 400px;
+     max-width: 400px;
      width: auto;
    }
 
     #gif{
-      max-height: 500px;
-      max-width: 500px;
+      max-height: 400px;
+      max-width: 400px;
       width: auto;
       height: auto;
     }
