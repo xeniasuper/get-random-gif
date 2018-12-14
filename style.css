@@ -3,6 +3,22 @@ body {
   margin: 0;
 }
 
+#contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+form {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3em;
+}
+
 input {
   margin-bottom: 1em;
   min-height: 30px;
@@ -51,14 +67,6 @@ input[type="text"] {
   width: auto;
 }
 
-form {
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3em;
-}
-
 progress {
 appearance: none;
 -moz-appearance: none;
@@ -81,14 +89,6 @@ progress::-webkit-progress-value {
 background: #fff;
 color: #fff;
 height: 0.1em;
-}
-
-#contentContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0;
 }
 
 #gif {
@@ -121,6 +121,16 @@ a:active {
   color: rgba(151, 174, 216);
 }
 
+.twinkling{
+  background: transparent url(img/twinkling.png) repeat top center;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
 @keyframes move-twink-back {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
@@ -136,16 +146,6 @@ a:active {
 @-ms-keyframes move-twink-back {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
-}
-
-.twinkling{
-  background: transparent url(img/twinkling.png) repeat top center;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
 }
 
 /*non-mobile*/
