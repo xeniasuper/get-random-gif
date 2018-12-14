@@ -47,11 +47,9 @@ input[type="text"] {
 #gifContainer {
   display: flex;
   justify-content: center;
-  max-height: 300px;
-  min-height: 300px;
+  height: 300px;
+  max-width: 300px;
   width: auto;
-  height: auto;
-  /* margin-bottom: 50px; */
 }
 
 form {
@@ -97,6 +95,7 @@ height: 0.1em;
 #gif {
   margin: 60px;
   max-height: 300px;
+  max-width: 300px;
   width: 150px;
   width: auto;
   height: auto;
