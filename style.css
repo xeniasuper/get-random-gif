@@ -154,14 +154,14 @@ a:active {
    #gifContainer {
      display: flex;
      justify-content: center;
-     height: 400px;
-     max-width: 400px;
+     height: 500px;
+     max-width: 500px;
      width: auto;
    }
 
     #gif{
-      max-height: 400px;
-      max-width: 400px;
+      max-height: 500px;
+      max-width: 500px;
       width: auto;
       height: auto;
     }
