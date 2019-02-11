@@ -1,5 +1,7 @@
 "use strict";
 
+const font = "'Roboto', sans-serif";
+
 const api = "https://api.giphy.com/v1/gifs/search?";
 const apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
 const limit = "&limit=1000";
@@ -31,7 +33,19 @@ getGifBtn.addEventListener("click", (event) => {
         gif.setAttribute("src", giphy.data[src].images.original.url);
         gifContainer.appendChild(gif);
         cnt_clicks = 0;
-      }).catch(error => console.log(error.name + ': ' + error.message))
+      }).catch((error) =>
+        {
+          console.log(error.name + ': ' + error.message);
+          let h2 = document.createElement("h2");
+          let text = document.createTextNode("There are no such gifs :(");
+          h2.appendChild(text);
+          gifContainer.appendChild(h2);
+          h2.style.color = "white";
+          h2.style.fontSize = "2em";
+          h2.style.fontFamily = font;
+          h2.style.margin = "70% auto 0 auto";
+        }
+      )
     }
     }
   }
@@ -62,25 +76,20 @@ function getInput(id) {
 function loadJSON(filePath) {
   return new Promise(function(resolve, reject) {
 	   let xhr = new XMLHttpRequest();
-     let progressBar = document.getElementById("progress");
+     let progressBar = document.getElementById("progressbar");
+     let progressValue = document.getElementById("progress-value");
 
     xhr.onloadstart = (e) => {
-      progressBar.value = 0.5;
+      progressValue.style.width = "50%";
     };
 
-    xhr.onprogress = (e) => {
-      if (e.lengthComputable) {
-          progressBar.max = e.total;
-          progressBar.value = e.loaded;
-        }
-      }
       xhr.onloadend = (e) => {
-        progressBar.value = e.loaded;
+        progressValue.style.width = "100%";
       }
   	   xhr.onreadystatechange = () => {
   		     if (xhr.readyState === XMLHttpRequest.DONE) {
   			        if (xhr.status === 200) {
-  				            resolve(JSON.parse(xhr.responseText))
+  				            resolve(JSON.parse(xhr.responseText));
                     } else {
                       reject(Error(xhr.statusText));
   			            }

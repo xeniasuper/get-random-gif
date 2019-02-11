@@ -12,10 +12,11 @@ body {
 }
 
 form {
-  height: 150px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150px;
   margin-top: 3em;
 }
 
@@ -24,27 +25,27 @@ input {
   min-height: 30px;
   font-size: 20px;
   border: 0.3em solid #fff;
-  border-radius:0.2em;
-  font-family:'Roboto', sans-serif;
+  border-radius: 0.2em;
+  font-family: "Roboto", sans-serif;
 }
 
 input:focus {
-   outline: none;
+  outline: none;
 }
 
-input[type="text"] {
+input[type=text] {
   margin-top: 1em;
   padding: 5px;
 }
 
 #getGif {
-   min-height: 50px;
-   width: 150px;
-   border: 0.12em solid;
-   background-color: transparent;
-   border-radius:0.3em;
-   color: #fff;
-   transition: all 0.2s;
+  min-height: 50px;
+  width: 150px;
+  border: 0.12em solid;
+  background-color: transparent;
+  border-radius: 0.3em;
+  color: #fff;
+  transition: all 0.2s;
 }
 
 #getGif:hover {
@@ -54,7 +55,7 @@ input[type="text"] {
 
 #getGif:active {
   border: #fff solid 0.1em;
-  color:#fff;
+  color: #fff;
   cursor: pointer;
   background: rgba(86, 132, 216, 0.3);
 }
@@ -66,29 +67,26 @@ input[type="text"] {
   max-width: 300px;
   width: auto;
 }
-
-progress {
-appearance: none;
--moz-appearance: none;
--webkit-appearance: none;
-border: none;
-background-size: auto;
-height: 0.1em;
-width: 200px;
-margin-top: 2em;
-
+@media screen and (min-width: 420px) and (min-height: 641px) {
+  #gifContainer {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    max-width: 500px;
+    width: auto;
+  }
 }
 
-progress::-moz-progress-bar {
-background: #fff;
-color: #fff;
-height: 0.1em;
+#progressbar {
+  width: 400px;
+  background-color: rgba(151, 174, 216, 0.3);
+  height: 2px;
 }
 
-progress::-webkit-progress-value {
-background: #fff;
-color: #fff;
-height: 0.1em;
+#progress-value {
+  background-color: #fff;
+  height: 100%;
+  width: 0px;
 }
 
 #gif {
@@ -99,74 +97,72 @@ height: 0.1em;
   width: auto;
   height: auto;
 }
+@media screen and (min-width: 420px) and (min-height: 641px) {
+  #gif {
+    max-height: 500px;
+    max-width: 500px;
+    width: auto;
+    height: auto;
+  }
+}
 
 footer {
   color: #fff;
   text-align: center;
-  font-family:'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a:link, a:visited {
-  color: rgba(151, 174, 216);
+  color: #97aed8;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-  color: rgba(151, 174, 216);
-}
-
+a:hover,
 a:active {
+  color: #97aed8;
   text-decoration: underline;
-  color: rgba(151, 174, 216);
 }
 
-.twinkling{
+.twinkling {
   background: transparent url(img/twinkling.png) repeat top center;
   -moz-animation: move-twink-back 200s linear infinite;
   -ms-animation: move-twink-back 200s linear infinite;
   -o-animation: move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
+  -webkit-animation: move-twink-back 200s linear infinite;
   animation: move-twink-back 200s linear infinite;
 }
 
 @keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
 }
 @-webkit-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
 }
 @-moz-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
 }
 @-ms-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
 }
 
-/*non-mobile*/
-@media screen
- and (min-width: 420px)
- and (min-height: 641px) {
-   #gifContainer {
-     display: flex;
-     justify-content: center;
-     height: 500px;
-     max-width: 500px;
-     width: auto;
-   }
-
-    #gif{
-      max-height: 500px;
-      max-width: 500px;
-      width: auto;
-      height: auto;
-    }
-
-    progress {
-      width: 30%;
-    }
-}
+/*# sourceMappingURL=style.css.map */

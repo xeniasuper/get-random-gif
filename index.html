@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Get A Gif!</title>
-
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="img/stars.png"/>
   <link rel="stylesheet" href="style.css">
@@ -17,7 +15,10 @@
      <input type="text" autocomplete="off" placeholder="Search for a gif..."  id="search">
      <input type="button" value="Get a gif!" id="getGif"></input>
    </form>
-   <progress id="progress" value="0"></progress>
+   <div id="progressbar">
+     <div id="progress-value">
+     </div>
+   </div>
    <div id="gifContainer"></div>
   <footer>
     <p>an implementation of search through <a href="https://giphy.com/">GIPHY</a></p>
