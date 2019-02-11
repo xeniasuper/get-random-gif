@@ -89,7 +89,7 @@ input[type=text] {
 }
 @media (min-width: 401px) and (max-width: 900px) {
   #progressbar {
-    width: 40%;
+    width: 50%;
   }
 }
 
