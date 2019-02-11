@@ -82,9 +82,14 @@ input[type=text] {
   background-color: rgba(151, 174, 216, 0.3);
   height: 2px;
 }
-@media (max-width: 900px) {
+@media (max-width: 400px) {
   #progressbar {
     width: 70%;
+  }
+}
+@media (min-width: 401px) and (max-width: 900px) {
+  #progressbar {
+    width: 40%;
   }
 }
 
