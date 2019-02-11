@@ -43,7 +43,7 @@ getGifBtn.addEventListener("click", (event) => {
           h2.style.color = "white";
           h2.style.fontSize = "2em";
           h2.style.fontFamily = font;
-          h2.style.margin = "70% auto 0 auto";
+          h2.style.margin = "50% auto 0 auto";
         }
       )
     }

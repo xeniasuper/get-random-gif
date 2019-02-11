@@ -78,7 +78,7 @@ input[type=text] {
 }
 
 #progressbar {
-  width: 400px;
+  width: 80%;
   background-color: rgba(151, 174, 216, 0.3);
   height: 2px;
 }
