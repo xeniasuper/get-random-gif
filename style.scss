@@ -86,7 +86,7 @@ $get-gif-active-color: rgba(86, 132, 216, 0.3);
   width: 20%;
   background-color: $get-gif-hover-color;
   height: 2px;
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     width: 70%;
   }
 }
