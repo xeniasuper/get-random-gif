@@ -78,9 +78,14 @@ input[type=text] {
 }
 
 #progressbar {
-  width: 80%;
+  width: 20%;
   background-color: rgba(151, 174, 216, 0.3);
   height: 2px;
+}
+@media (max-width: 600px) {
+  #progressbar {
+    width: 70%;
+  }
 }
 
 #progress-value {
