@@ -1,0 +1,171 @@
+$font: 'Roboto', sans-serif;
+
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+body {
+  background: #000 url(../img/sky.png) repeat top center;
+  margin: 0;
+  height: 100vh;
+}
+
+#contentContainer {
+  @extend %flex;
+  margin: 0;
+  height: 100%;
+}
+
+.form {
+  @extend %flex;
+  height: 150px;
+  margin-top: 3em;
+}
+
+input {
+  margin-bottom: 1em;
+  min-height: 30px;
+  font-size: 20px;
+  border: 0.3em solid #fff;
+  border-radius:0.2em;
+  font-family: $font;
+}
+
+input:focus {
+   outline: none;
+}
+
+.searchBar {
+  margin-top: 1em;
+  padding: 5px;
+}
+
+.button {
+   min-height: 50px;
+   width: 150px;
+   border: 0.12em solid;
+   background-color: transparent;
+   border-radius:0.3em;
+   color: #fff;
+   transition: all 0.2s;
+}
+
+$get-gif-hover-color: rgba(151, 174, 216, 0.3);
+$get-gif-active-color: rgba(86, 132, 216, 0.3);
+
+#getGifBtn:hover {
+  background: $get-gif-hover-color;
+  cursor: pointer;
+}
+
+#getGifBtn:active {
+  border: #fff solid 0.1em;
+  color:#fff;
+  cursor: pointer;
+  background: $get-gif-active-color;
+}
+
+#gifContainer {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  max-width: 300px;
+  width: auto;
+  @media screen
+   and (min-width: 420px)
+   and (min-height: 641px) {
+       display: flex;
+       justify-content: center;
+       height: 500px;
+       max-width: 500px;
+       width: auto;
+     }
+}
+
+.progressbar {
+  width: 20%;
+  background-color: $get-gif-hover-color;
+  height: 2px;
+  @media (max-width: 400px) {
+    width: 70%;
+  }
+  @media (min-width: 401px) and (max-width: 900px) {
+    width: 50%;
+  }
+}
+
+.progress-value {
+  background-color: #fff;
+  height: 100%;
+  width: 0px;
+}
+
+.gif {
+  margin: 60px;
+  max-height: 300px;
+  max-width: 300px;
+  width: 150px;
+  width: auto;
+  height: auto;
+  @media screen
+   and (min-width: 420px)
+   and (min-height: 641px) {
+        max-height: 500px;
+        max-width: 500px;
+        width: auto;
+        height: auto;
+      }
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  font-family: $font;
+}
+
+$a-color: rgba(151, 174, 216);
+
+a:link, a:visited {
+  color: $a-color;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: $a-color;
+  text-decoration: underline;
+}
+
+
+// use mixin
+$move: move-twink-back 200s linear infinite;
+
+.twinkling{
+  background: transparent url(../img/twinkling.png) repeat top center;
+  -moz-animation: $move;
+  -ms-animation: $move;
+  -o-animation: $move;
+  -webkit-animation: $move;
+  animation: $move;
+}
+
+@mixin keyframes-move() {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-twink-back {
+    @include keyframes-move;
+}
+@-webkit-keyframes move-twink-back {
+    @include keyframes-move;
+}
+@-moz-keyframes move-twink-back {
+    @include keyframes-move;
+}
+@-ms-keyframes move-twink-back {
+    @include keyframes-move;
+}

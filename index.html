@@ -7,25 +7,24 @@
   <title>Get A Gif!</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="img/stars.png"/>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   <div id="contentContainer" class="twinkling">
-   <form id="form">
-     <input type="text" autocomplete="off" placeholder="Search for a gif..."  id="search">
-     <input type="button" value="Get a gif!" id="getGif"></input>
-   </form>
-   <div id="progressbar">
-     <div id="progress-value">
+  <div id="contentContainer" class="twinkling">
+     <form class="form" id="searchForm">
+       <input type="text" autocomplete="off" placeholder="Search for a gif..."  class="searchBar" id="searchGifBar">
+       <input type="button" value="Get a gif!" class="button" id="getGifBtn"></input>
+     </form>
+     <div class="progressbar">
+       <div class="progress-value"></div>
      </div>
-   </div>
-   <div id="gifContainer"></div>
-  <footer>
-    <p>an implementation of search through <a href="https://giphy.com/">GIPHY</a></p>
-    <p>Xenia Fedorova, 2018</p>
-    <p><a href="https://github.com/xeniasuper">GitHub</a></p>
-  </footer>
+     <div id="gifContainer"></div>
+    <footer>
+      <p>an implementation of search through <a href="https://giphy.com/">GIPHY</a></p>
+      <p>Xenia Fedorova, 2018</p>
+      <p><a href="https://github.com/xeniasuper">GitHub</a></p>
+    </footer>
   </div>
-  <script src="main.js"></script>
+  <script src="script/script.js"></script>
 </body>
 </html>
