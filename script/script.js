@@ -1,27 +1,26 @@
 "use strict";
 // TODO: get rid of global variables
 
-const font = "'Roboto', sans-serif";
+function makeURL(api, query, apiKey, limit) {
+  return api + query + apiKey + limit;
+}
 
-let amount = 0;
+function Search() {
+  this._font = "'Roboto', sans-serif";
+  this._query = "";
+  //this._searchForm = document.getElementById("searchForm");
+  //this._searchGifBar = document.getElementById("searchGifBar");
+  this._cnt_clicks = 0;
+}
 
-const api = "https://api.giphy.com/v1/gifs/search?";
-const apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
-const limit = "&limit=1000";
-let query = "";
 
-let getGifBtn = document.getElementById("getGifBtn");
-let searchForm = document.getElementById("searchForm");
-let searchGifBar = document.getElementById("searchGifBar");
-let cnt_clicks = 0;
-
-getGifBtn.addEventListener("click", (event) => {
+Search.prototype.perform = function() {
   let input = getInput("searchGifBar");
 
   if (input != "") {
     event.preventDefault();
-    cnt_clicks++;
-    if (cnt_clicks === 1) {
+    this._cnt_clicks++;
+    if (this._cnt_clicks === 1) {
       let errorMessages = document.getElementsByClassName("errorMessage");
       let gif = document.getElementsByClassName("gif")[0];
 
@@ -34,8 +33,9 @@ getGifBtn.addEventListener("click", (event) => {
       }
       };
 
-      query = setQuery(input);
-      let url = api + query + apiKey + limit;
+      this._query = setQuery(input);
+
+      let url = makeURL("https://api.giphy.com/v1/gifs/search?", this._query, "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O", "&limit=1000");
 
       loadJSON(url).then((giphy) => {
         let gifContainers = document.getElementById("gifContainer");
@@ -47,7 +47,7 @@ getGifBtn.addEventListener("click", (event) => {
         gif.setAttribute("src", giphy.data[src].images.original.url);
         gifContainer.appendChild(gif);
 
-        cnt_clicks = 0;
+        this._cnt_clicks = 0;
       }).catch((error) => {
         let gif = document.getElementsByClassName("gif")[0];
         if (typeof gif !== "undefined" && gif !== null) {
@@ -63,20 +63,28 @@ getGifBtn.addEventListener("click", (event) => {
           noGifs.setAttribute("class", "errorMessage")
           noGifs.style.color = "white";
           noGifs.style.fontSize = "2em";
-          noGifs.style.fontFamily = font;
+          noGifs.style.fontFamily = this._font;
           noGifs.style.margin = "50% auto 0 auto";
 
-          cnt_clicks = 0;
+          this._cnt_clicks = 0;
         }
       )
     }
     }
-);
+//);
+
+
+// search.perform();
+
+document.getElementById("getGifBtn").addEventListener("click", function (event) {
+  let search = new Search();
+  search.perform();
+})
 
 document.addEventListener("keypress", function(event) {
     if (event.which === 13) {
         event.preventDefault();
-        getGifBtn.click();
+        document.getElementById("getGifBtn").click();
     }
 });
 
@@ -94,20 +102,18 @@ function getInput(id) {
   return input;
 }
 
-let progressBars = document.getElementsByClassName("progressbar");
-let progressValues = document.getElementsByClassName("progress-value");
-
 function loadJSON(filePath) {
   return new Promise(function(resolve, reject) {
 	  let xhr = new XMLHttpRequest();
 
+    let progressValues = document.getElementsByClassName("progress-value");
     xhr.onloadstart = () => changeProgressWidth(progressValues, 20);
 
-    // Obviously, this is incorrect, but I have no idea what to do
-    // event.total is incomputable, for example, in Chrome.
+    // Obviously, this is incorrect, but I have no idea what to do,
+    // because event.total is incomputable, for example, in Chrome.
     // However, the main goal of a progressbar is to indicate
     // that the gif is loading, and we achieve this
-    xhr.onprogress = (event) => changeProgressWidth(progressValues, 80);
+    xhr.onprogress = () => changeProgressWidth(progressValues, 80);
 
     xhr.onloadend = () => changeProgressWidth(progressValues, 100);
 
