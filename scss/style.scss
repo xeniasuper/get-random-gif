@@ -140,32 +140,32 @@ a:active {
 }
 
 
-// use mixin
+@mixin moving($move-rule){
+  -moz-animation: $move-rule;
+  -ms-animation: $move-rule;
+  -o-animation: $move-rule;
+  -webkit-animation: $move-rule;
+  animation: $move-rule;
+}
+
 $move: move-twink-back 200s linear infinite;
 
 .twinkling{
   background: transparent url(../img/twinkling.png) repeat top center;
-  -moz-animation: $move;
-  -ms-animation: $move;
-  -o-animation: $move;
-  -webkit-animation: $move;
-  animation: $move;
+  @include moving($move);
 }
 
-@mixin keyframes-move() {
+@mixin move-from-to() {
   from {background-position:0 0;}
   to {background-position:-10000px 5000px;}
 }
 
 @keyframes move-twink-back {
-    @include keyframes-move;
+  @include move-from-to;
 }
 @-webkit-keyframes move-twink-back {
-    @include keyframes-move;
+  @include move-from-to;
 }
 @-moz-keyframes move-twink-back {
-    @include keyframes-move;
-}
-@-ms-keyframes move-twink-back {
-    @include keyframes-move;
+  @include move-from-to;
 }
