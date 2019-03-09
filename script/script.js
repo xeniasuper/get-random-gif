@@ -1,85 +1,10 @@
 "use strict";
-// TODO: get rid of global variables
 
-function makeURL(api, query, apiKey, limit) {
-  return api + query + apiKey + limit;
-}
-
-function Search() {
-  this._font = "'Roboto', sans-serif";
-  this._query = "";
-  //this._searchForm = document.getElementById("searchForm");
-  //this._searchGifBar = document.getElementById("searchGifBar");
-  this._cnt_clicks = 0;
-}
-
-
-Search.prototype.perform = function() {
-  let input = getInput("searchGifBar");
-
-  if (input != "") {
-    event.preventDefault();
-    this._cnt_clicks++;
-    if (this._cnt_clicks === 1) {
-      let errorMessages = document.getElementsByClassName("errorMessage");
-      let gif = document.getElementsByClassName("gif")[0];
-
-      if (errorMessages.length !== 0) {
-          [].map.call(errorMessages, (message) => message.remove());
-      }
-
-      if (typeof gif !== "undefined" && gif !== null) {
-        gif.remove();
-      }
-      };
-
-      this._query = setQuery(input);
-
-      let url = makeURL("https://api.giphy.com/v1/gifs/search?", this._query, "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O", "&limit=1000");
-
-      loadJSON(url).then((giphy) => {
-        let gifContainers = document.getElementById("gifContainer");
-
-        let gif = document.createElement("img");
-        gif.setAttribute("class", "gif");
-
-        let src = randomInteger();
-        gif.setAttribute("src", giphy.data[src].images.original.url);
-        gifContainer.appendChild(gif);
-
-        this._cnt_clicks = 0;
-      }).catch((error) => {
-        let gif = document.getElementsByClassName("gif")[0];
-        if (typeof gif !== "undefined" && gif !== null) {
-          gif.remove();
-        };
-          console.log(error.name + ': ' + error.message);
-
-          let noGifs = document.createElement("h2");
-          let text = document.createTextNode("There are no such gifs :(");
-
-          noGifs.appendChild(text);
-          gifContainer.appendChild(noGifs);
-          noGifs.setAttribute("class", "errorMessage")
-          noGifs.style.color = "white";
-          noGifs.style.fontSize = "2em";
-          noGifs.style.fontFamily = this._font;
-          noGifs.style.margin = "50% auto 0 auto";
-
-          this._cnt_clicks = 0;
-        }
-      )
-    }
-    }
-//);
-
-
-// search.perform();
-
-document.getElementById("getGifBtn").addEventListener("click", function (event) {
-  let search = new Search();
-  search.perform();
-})
+document.getElementById("getGifBtn")
+        .addEventListener("click", function (event) {
+  let search = new SearchGiphy();
+  search.perform(event);
+});
 
 document.addEventListener("keypress", function(event) {
     if (event.which === 13) {
@@ -88,20 +13,109 @@ document.addEventListener("keypress", function(event) {
     }
 });
 
-function randomInteger() {
-  return Math.floor(Math.random()*1000)
+/**
+* Represents a search through GIPHY
+**/
+function SearchGiphy() {
+  this._font = "'Roboto', sans-serif";
+  this._query = "";
+  this._cnt_clicks = 0;
+  this._api = "https://api.giphy.com/v1/gifs/search?";
+  this._apiKey = "&api_key=X1jZp2BrJcegW5PXBFPWn8v1RU557u6O";
+  this._limit = "&limit=1000";
 }
 
-function setQuery(content) {
+/**
+* Search through GIPHY for a particular gif
+* @param {click} event
+**/
+SearchGiphy.prototype.perform = function(event) {
+  let input = getInput("searchGifBar");
+
+  if (input != "") {
+    event.preventDefault();
+    this._cnt_clicks++;
+
+    this._deletePrevErrMsg();
+    this._deletePrevGifs();
+    this._setQuery(input);
+
+    let url = this._makeURL();
+
+    loadJSON(url)
+                .then((giphy) => {
+                    createGif(giphy);
+                    this._cnt_clicks = 0;
+                  })
+                .catch((error) => {
+                  this._deletePrevGifs();
+                  console.log(error.name + ': ' + error.message);
+                  createErrMsg(this._font);
+                  this._cnt_clicks = 0;
+                });
+    };
+};
+
+/**
+* Sets the query
+* @param {string} content
+**/
+SearchGiphy.prototype._setQuery = function (content) {
   content = content.replace(/\s/g, '-');
-  return ""+`&q=${content}`;
+  this._query = ""+`&q=${content}`;
 }
 
+/**
+* Removes gifs that were searched for
+**/
+SearchGiphy.prototype._deletePrevGifs = function() {
+  if (this._cnt_clicks === 1) {
+    let gifs = document.getElementsByClassName("gif");
+    [].map.call(gifs, (gif) => {
+      if (typeof gif !== "undefined" && gif !== null) {
+        gif.remove();
+      }
+    });
+  }
+};
+
+/**
+* Removes an error message
+**/
+SearchGiphy.prototype._deletePrevErrMsg = function() {
+  if (this._cnt_clicks === 1) {
+    let errorMessages = document.getElementsByClassName("errorMessage");
+    if (errorMessages.length !== 0) {
+        [].map.call(errorMessages, (message) => message.remove());
+    }
+  }
+};
+
+/**
+* Creates a URL from an api, a query, a key and a limit
+**/
+SearchGiphy.prototype._makeURL = function() {
+  return this._api + this._query + this._apiKey + this._limit;
+}
+
+/**
+* Generates a random integer
+**/function randomInteger() {
+  return Math.floor(Math.random()*1000);
+};
+
+/**
+* Gets value of an input with a particular id
+* @param {string} id
+**/
 function getInput(id) {
-  let input = document.getElementById(id).value;
-  return input;
-}
+  return document.getElementById(id).value;
+};
 
+/**
+* Loads a JSON file
+* @param {string} filePath - URL
+**/
 function loadJSON(filePath) {
   return new Promise(function(resolve, reject) {
 	  let xhr = new XMLHttpRequest();
@@ -114,9 +128,7 @@ function loadJSON(filePath) {
     // However, the main goal of a progressbar is to indicate
     // that the gif is loading, and we achieve this
     xhr.onprogress = () => changeProgressWidth(progressValues, 80);
-
     xhr.onloadend = () => changeProgressWidth(progressValues, 100);
-
   	xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
@@ -126,7 +138,6 @@ function loadJSON(filePath) {
         }
       }
     };
-
     xhr.onerror = () => {
       reject(Error("Network Error"));
     };
@@ -136,10 +147,44 @@ function loadJSON(filePath) {
 }
 
 /**
+* Inserts a gif into the DOM
+* @param {JSON} json
+**/
+function createGif(json) {
+  let gif = document.createElement("img");
+  gif.setAttribute("class", "gif");
+
+  let src = randomInteger();
+  gif.setAttribute("src", json.data[src].images.original.url);
+
+  let gifContainer = document.getElementById("gifContainer");
+  gifContainer.appendChild(gif);
+};
+
+/**
+* Inserts an error message into the DOM
+* @param {string} font
+**/
+function createErrMsg(font) {
+  let gifContainer = document.getElementById("gifContainer");
+  let errorMessage = document.createElement("h2");
+  let text = document.createTextNode("There are no such gifs :(");
+
+  errorMessage.appendChild(text);
+  gifContainer.appendChild(errorMessage);
+  errorMessage.setAttribute("class", "errorMessage");
+
+  errorMessage.style.color = "white";
+  errorMessage.style.fontSize = "2em";
+  errorMessage.style.fontFamily = font;
+  errorMessage.style.margin = "50% auto 0 auto";
+};
+
+/**
 * Changes width of a progress value by a particular percent
 * @param {array} values - array-like object of progress values
 * @param {number} precent
 **/
 function changeProgressWidth(values, percent) {
   values = [].map.call(values, (value) => value.style.width = percent+"%");
-}
+};
