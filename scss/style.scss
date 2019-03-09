@@ -28,7 +28,7 @@ body {
 #contentContainer {
   @extend %flex;
   margin: 0;
-  height: 100%;
+  height: 100vh;
 }
 
 .form {
