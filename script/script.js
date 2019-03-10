@@ -120,19 +120,14 @@ function loadJSON(filePath) {
   return new Promise(function(resolve, reject) {
 	  let xhr = new XMLHttpRequest();
 
-    let progressValues = document.getElementsByClassName("progress-value");
+    let progressValues = document.getElementsByClassName("progressValue");
     xhr.onloadstart = () => changeProgressWidth(progressValues, 20);
-
-    // Obviously, this is incorrect, but I have no idea what to do,
-    // because event.total is incomputable, for example, in Chrome.
-    // However, the main goal of a progressbar is to indicate
-    // that the gif is loading, and we achieve this
     xhr.onprogress = () => changeProgressWidth(progressValues, 80);
-    xhr.onloadend = () => changeProgressWidth(progressValues, 100);
   	xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.responseText));
+          changeProgressWidth(progressValues, 100);
         } else {
           reject(Error(xhr.statusText));
         }
@@ -177,7 +172,6 @@ function createErrMsg(font) {
   errorMessage.style.color = "white";
   errorMessage.style.fontSize = "2em";
   errorMessage.style.fontFamily = font;
-  errorMessage.style.margin = "50% auto 0 auto";
 };
 
 /**

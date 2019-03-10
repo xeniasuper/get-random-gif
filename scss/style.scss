@@ -2,6 +2,7 @@ $font: 'Roboto', sans-serif;
 $get-gif-hover-color: rgba(151, 174, 216, 0.3);
 $get-gif-active-color: rgba(86, 132, 216, 0.3);
 $a-color: rgba(151, 174, 216);
+$progressbar-color: #92a2b9;
 $move: move-twink-back 200s linear infinite;
 
 @mixin moving($move-rule){
@@ -22,13 +23,12 @@ $move: move-twink-back 200s linear infinite;
 body {
   background: #000 url(../img/sky.png) repeat top center;
   margin: 0;
-  height: 100vh;
 }
 
 #contentContainer {
   @extend %flex;
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 .form {
@@ -82,7 +82,6 @@ input:focus {
   justify-content: center;
   height: 300px;
   max-width: 300px;
-  width: auto;
   @media screen
    and (min-width: 420px)
    and (min-height: 641px) {
@@ -93,7 +92,7 @@ input:focus {
 
 .progressbar {
   width: 20%;
-  background-color: $get-gif-hover-color;
+  background-color: $progressbar-color;
   height: 2px;
   @media (max-width: 400px) {
     width: 70%;
@@ -103,24 +102,24 @@ input:focus {
   }
 }
 
-.progress-value {
+.progressValue {
   background-color: #fff;
   height: 100%;
   width: 0px;
 }
 
+#gifContainer {
+  @extend %flex;
+  min-height: 300px;
+  width: 80%;
+  max-height: 500px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .gif {
-  margin: 60px;
-  max-height: 300px;
-  max-width: 300px;
-  width: auto;
-  height: auto;
-  @media screen
-   and (min-width: 420px)
-   and (min-height: 641px) {
-        max-height: 500px;
-        max-width: 500px;
-      }
+  max-height: 80%;
+  max-width: 80%;
 }
 
 footer {
