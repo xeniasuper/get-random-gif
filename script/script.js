@@ -1,23 +1,23 @@
 "use strict";
 
 document.getElementById("getGifBtn")
-        .addEventListener("click", function (event) {
-  let search = new SearchGiphy();
-  search.perform(event);
+	.addEventListener("click", function (event) {
+ 		let search = new SearchGiphy();
+  	search.perform(event);
 });
 
 document.addEventListener("keypress", function(event) {
-    if (event.which === 13) {
-        event.preventDefault();
-        document.getElementById("getGifBtn").click();
-    }
+  if (event.which === 13) {
+  	event.preventDefault();
+    document.getElementById("getGifBtn").click();
+  }
 });
 
 /**
 * Represents a search through GIPHY
 **/
 function SearchGiphy() {
-  this._font = "'Roboto', sans-serif";
+	this._font = "'Roboto', sans-serif";
   this._query = "";
   this._cnt_clicks = 0;
   this._api = "https://api.giphy.com/v1/gifs/search?";
@@ -137,7 +137,7 @@ function loadJSON(filePath) {
 		}
 	      }
 	    };
-	    xhr.onerror function() {
+	    xhr.onerror = function() {
 	      reject(new Error("Network Error"));
 	    };
 	  xhr.open("GET", filePath, true);
