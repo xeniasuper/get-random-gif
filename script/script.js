@@ -120,25 +120,29 @@ function loadJSON(filePath) {
   return new Promise(function(resolve, reject) {
 	  let xhr = new XMLHttpRequest();
 
-    let progressValues = document.getElementsByClassName("progressValue");
-    xhr.onloadstart = () => changeProgressWidth(progressValues, 20);
-    xhr.onprogress = () => changeProgressWidth(progressValues, 80);
-  	xhr.onreadystatechange = () => {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          resolve(JSON.parse(xhr.responseText));
-          changeProgressWidth(progressValues, 100);
-        } else {
-          reject(Error(xhr.statusText));
-        }
-      }
-    };
-    xhr.onerror = () => {
-      reject(Error("Network Error"));
-    };
-  	xhr.open("GET", filePath, true);
-  	xhr.send();
-  })
+	    let progressValues = document.getElementsByClassName("progressValue");
+	    xhr.onloadstart = function() {
+		    changeProgressWidth(progressValues, 20);
+		}
+	    xhr.onprogress = function() {
+		    changeProgressWidth(progressValues, 80);
+	    }
+	  xhr.onreadystatechange = function() {
+	      if (xhr.readyState === XMLHttpRequest.DONE) {
+		if (xhr.status === 200) {
+		  resolve(JSON.parse(xhr.responseText));
+		  changeProgressWidth(progressValues, 100);
+		} else {
+		  reject(new Error(xhr.statusText));
+		}
+	      }
+	    };
+	    xhr.onerror function() {
+	      reject(new Error("Network Error"));
+	    };
+	  xhr.open("GET", filePath, true);
+	  xhr.send();
+	})
 }
 
 /**
