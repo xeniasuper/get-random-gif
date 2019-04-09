@@ -184,5 +184,5 @@ function createErrMsg(font) {
 * @param {number} precent
 **/
 function changeProgressWidth(values, percent) {
-  values = [].map.call(values, (value) => value.style.width = percent+"%");
+  values = Array.prototype.map.call(values, (value) => value.style.width = percent+"%");
 };
