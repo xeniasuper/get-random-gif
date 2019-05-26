@@ -44,17 +44,16 @@
 
 			let url = this._makeURL();
 
-			loadJSON(url)
-									.then((giphy) => {
+			loadJSON(url).then((giphy) => {
 											createGif(giphy);
 											this._cnt_clicks = 0;
 										})
-									.catch((error) => {
-										this._deletePrevGifs();
-										console.log(error.name + ': ' + error.message);
-										createErrMsg(this._font);
-										this._cnt_clicks = 0;
-									});
+									 .catch((error) => {
+											this._deletePrevGifs();
+											console.log(error.name + ': ' + error.message);
+											createErrMsg(this._font);
+											this._cnt_clicks = 0;
+										});
 			};
 	};
 
